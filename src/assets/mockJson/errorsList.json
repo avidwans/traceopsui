@@ -1,0 +1,111 @@
+[
+  {
+    "exception": "null pointer",
+    "occurrence": 30,
+    "rootCause": "keep a long desc for the error mesg speciified",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "test",
+    "occurrence": 25,
+    "rootCause": "this is a test desc mesg",
+    "possibleSolutions" : ""
+
+  },
+  {
+    "exception": "index out of bound",
+    "occurrence": 35,
+    "rootCause": "error desc can be changed acc to the error present",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "null pointer",
+    "occurrence": 30,
+    "rootCause": "keep a long desc for the error mesg speciified",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "test",
+    "occurrence": 25,
+    "rootCause": "this is a test desc mesg",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "index out of bound",
+    "occurrence": 35,
+    "rootCause": "error desc can be changed acc to the error present",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "null pointer",
+    "occurrence": 30,
+    "rootCause": "keep a long desc for the error mesg speciified",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "test",
+    "occurrence": 25,
+    "rootCause": "this is a test desc mesg",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "index out of bound",
+    "occurrence": 35,
+    "rootCause": "error desc can be changed acc to the error present",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "null pointer",
+    "occurrence": 30,
+    "rootCause": "keep a long desc for the error mesg speciified",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "test",
+    "occurrence": 25,
+    "rootCause": "this is a test desc mesg",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "index out of bound",
+    "occurrence": 35,
+    "rootCause": "error desc can be changed acc to the error present",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "null pointer",
+    "occurrence": 30,
+    "rootCause": "keep a long desc for the error mesg speciified",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "test",
+    "occurrence": 25,
+    "rootCause": "this is a test desc mesg",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "index out of bound",
+    "occurrence": 35,
+    "rootCause": "error desc can be changed acc to the error present",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "null pointer",
+    "occurrence": 30,
+    "rootCause": "keep a long desc for the error mesg speciified",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "test",
+    "occurrence": 25,
+    "rootCause": "this is a test desc mesg",
+    "possibleSolutions" : ""
+  },
+  {
+    "exception": "index out of bound",
+    "occurrence": 35,
+    "rootCause": "error desc can be changed acc to the error present",
+    "possibleSolutions" : ""
+  }
+]

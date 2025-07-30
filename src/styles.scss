@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@ng-select/ng-select/themes/default.theme.css";
+@import "primeicons/primeicons.css";
+
+body,html{
+    height: 99%;
+    background-color: lightgray;
+}
+
+.card {
+    background: var(--card-bg);
+    border: var(--card-border);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background-color: white;
+} 

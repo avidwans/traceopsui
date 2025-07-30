@@ -1,0 +1,47 @@
+import { Component, OnInit  } from '@angular/core';
+import { MockErrorService } from '../services/mock-errors.service';
+import { lastValueFrom } from 'rxjs';
+import { ErrorList } from '../models/errorLogs';
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
+
+@Component({
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    standalone: false,
+})
+export class AppComponent implements OnInit{
+  title = 'error-logger';
+  userSelected:string = 'User1';
+  selectedMicroservicesId: string[] = [];
+  startDate: Date[] | undefined = undefined;
+  endDate: Date[] | undefined = undefined; 
+  errorList: ErrorList[] = []
+
+  microservices: {id:number,name:string}[] = [];
+
+  constructor(private mockErrorService: MockErrorService){}
+
+  ngOnInit(){
+    lastValueFrom(this.mockErrorService.getErrorsList()).then(res =>{
+      this.errorList = res;
+    })
+  }
+
+  exportToPDF() {
+    const doc = new jsPDF();
+    const filename = "exception-detials" + new Date();
+    // Define columns and rows
+    const columns = ['Exception', 'Occurences', 'Root Cause', 'Possible Solutions'];
+    const rows = this.errorList.map(row => [row.exception, row.occurrence, row.rootCause, row.possibleSolutions]);
+
+    // Add table to PDF
+    autoTable(doc, {
+      head: [columns],
+      body: rows,
+    });
+
+    doc.save(filename);
+  }
+}
