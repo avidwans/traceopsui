@@ -4,6 +4,7 @@ import { lastValueFrom } from 'rxjs';
 import { ErrorList } from '../models/errorLogs';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { ErrorsService } from '../services/errors.service';
 
 @Component({
     selector: 'app-root',
@@ -21,10 +22,10 @@ export class AppComponent implements OnInit{
 
   microservices: {id:number,name:string}[] = [];
 
-  constructor(private mockErrorService: MockErrorService){}
+  constructor(private errorService: MockErrorService){}
 
   ngOnInit(){
-    lastValueFrom(this.mockErrorService.getErrorsList()).then(res =>{
+    lastValueFrom(this.errorService.getErrorsList()).then(res =>{
       this.errorList = res;
     })
   }

@@ -25,7 +25,7 @@ import { MockErrorService } from '../services/mock-errors.service';
     FormsModule, 
     NgSelectModule
   ],
-  providers: [{provide: ErrorsService, useClass: MockErrorService},
+  providers: [{provide: ErrorsService, useClass: ErrorsService},
     provideHttpClient()
   ],
   bootstrap: [AppComponent]

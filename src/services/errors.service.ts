@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ErrorsService {
 
-  constructor(protected http: HttpClient) { }
+  constructor(protected httpClient: HttpClient) { }
 
   getErrorsList(): Observable<ErrorList[]>{
-    throw new Error('Real service not implemented');
+    return this.httpClient.get<ErrorList[]>('/api/analzyse')
   }
 }

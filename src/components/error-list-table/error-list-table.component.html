@@ -1,24 +1,26 @@
-<p-table [value]="errorLogs" stripedRows   [paginator]="errorLogs.length > 10"
-[rows]="10" [tableStyle]="{ 'min-width': '50rem' }" [rowsPerPageOptions]="[10, 20, 50]">
-    <ng-template #header>
-        <tr>
-            <th>Exception</th>
-            <th>Occurences</th>
-            <th>Root Cause</th>
-            <th>Possible Solutions</th>
-        </tr>
-    </ng-template>
-    <ng-template #body let-errordetail>
-        <tr>
-            <td>{{ errordetail.exception }}</td>
-            <td>{{ errordetail.occurrence }}</td>
-            <td>{{ errordetail.rootCause }}</td>
-            <td>{{ errordetail.possibleSolutions }}</td>
-        </tr>
-    </ng-template>
-    <ng-template #emptymessage>
-        <tr>
-            <td colspan="12">No Records found.</td>
-        </tr>
-    </ng-template>
-</p-table>
+@if(errorLogs.length){
+    <p-table [value]="errorLogs" stripedRows   [paginator]="errorLogs.length > 10"
+    [rows]="10" [tableStyle]="{ 'min-width': '50rem' }" [rowsPerPageOptions]="[10, 20, 50]">
+        <ng-template #header>
+            <tr>
+                <th>Exception</th>
+                <th>Occurences</th>
+                <th>Root Cause</th>
+                <th>Possible Solutions</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-errordetail>
+            <tr>
+                <td>{{ errordetail.exception }}</td>
+                <td>{{ errordetail.occurrence }}</td>
+                <td>{{ errordetail.rootCause }}</td>
+                <td>{{ errordetail.possibleSolutions }}</td>
+            </tr>
+        </ng-template>
+        <ng-template #emptymessage>
+            <tr>
+                <td colspan="12">No Records found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+}

@@ -9,9 +9,9 @@ import { ErrorsService } from "./errors.service";
 })
 export class MockErrorService extends ErrorsService {
 
-  constructor(protected override http: HttpClient) {super(http)}
+  constructor(protected override httpClient: HttpClient) {super(httpClient)}
 
   override getErrorsList(): Observable<ErrorList[]> {
-    return this.http.get<ErrorList[]>('assets/mockJson/errorsList.json');
+    return this.httpClient.get<ErrorList[]>('assets/mockJson/errorsList.json');
   }
 }
