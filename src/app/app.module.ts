@@ -10,12 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { provideHttpClient } from '@angular/common/http';
 import { MockErrorService } from '../services/mock-errors.service';
+import { ChatBotWindowComponent } from '../components/chat-bot-window/chat-bot-window.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorListTableComponent
+    ErrorListTableComponent,
+    ChatBotWindowComponent
   ],
   imports: [
     BrowserModule,
