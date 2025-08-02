@@ -15,6 +15,6 @@ export class ErrorsService {
   }
 
   getQueryReply(question: string): Observable<string>{
-    return this.httpClient.post<{reply: string}>('/api/chat',{query: question}).pipe(map(r => r.reply))
+    return this.httpClient.post<{reply: string}>('http://localhost:3000/chat',{query: question}).pipe(map(r => r.reply))
   }
 }

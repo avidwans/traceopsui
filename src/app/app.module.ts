@@ -8,16 +8,19 @@ import { ErrorsService } from '../services/errors.service';
 import { PrimeNgModule } from './primeng.module';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MockErrorService } from '../services/mock-errors.service';
 import { ChatBotWindowComponent } from '../components/chat-bot-window/chat-bot-window.component';
+import { RequestInterceptor } from '../interceptor/request.interceptor';
+import { LoadSpinnerComponent } from '../components/load-spinner/load-spinner.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorListTableComponent,
-    ChatBotWindowComponent
+    ChatBotWindowComponent,
+    LoadSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { ChatBotWindowComponent } from '../components/chat-bot-window/chat-bot-w
     NgSelectModule
   ],
   providers: [{provide: ErrorsService, useClass: ErrorsService},
+    // provideHttpClient(withInterceptors([RequestInterceptor])),
     provideHttpClient()
   ],
   bootstrap: [AppComponent]

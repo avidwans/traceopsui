@@ -9,7 +9,7 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card'; 
-
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
     imports: [
@@ -22,6 +22,7 @@ import { CardModule } from 'primeng/card';
         InputTextModule,
         TableModule,
         CardModule,
+        ProgressSpinnerModule
     ],
     exports: [
         AccordionModule,
@@ -33,6 +34,7 @@ import { CardModule } from 'primeng/card';
         InputTextModule,
         TableModule,
         CardModule,
+        ProgressSpinnerModule
     ]
 })
 export class PrimeNgModule { }

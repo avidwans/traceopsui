@@ -12,6 +12,7 @@ export class ChatBotWindowComponent {
   messages: { sender: 'user' | 'bot'; text: string }[] = [];
   userInput: string = '';
   visible = false;
+  loadingReply:boolean = false;
 
   constructor(private errorService: ErrorsService){
    
@@ -23,12 +24,16 @@ export class ChatBotWindowComponent {
 
     this.messages.push({ sender: 'user', text: input });
     this.userInput = '';
-
+    this.loadingReply = true
     lastValueFrom(this.errorService.getQueryReply(input)).then(res =>{
-       this.messages.push({
+      this.messages.push({
         sender: 'bot',
         text: res
       });
+      this.loadingReply = false;
+    }).catch(err =>{
+       this.messages.push({ sender: 'bot', text: 'Something went wrong.' });
+      this.loadingReply = false;
     })
   }
 

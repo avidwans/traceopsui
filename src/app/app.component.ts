@@ -5,6 +5,7 @@ import { ErrorList } from '../models/errorLogs';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { ErrorsService } from '../services/errors.service';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
     selector: 'app-root',
@@ -22,12 +23,14 @@ export class AppComponent implements OnInit{
 
   microservices: {id:number,name:string}[] = [];
 
-  constructor(private errorService: MockErrorService){}
+  constructor(private errorService: MockErrorService,private loaderService:LoaderService){}
 
   ngOnInit(){
     lastValueFrom(this.errorService.getErrorsList()).then(res =>{
       this.errorList = res;
     })
+     setTimeout(() => this.loaderService.show(), 1000);
+  setTimeout(() => this.loaderService.hide(), 5000);
   }
 
   exportToPDF() {

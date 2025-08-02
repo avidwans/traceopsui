@@ -15,6 +15,12 @@
     </div>
   </div>
 
+  <div *ngIf="loadingReply" class="bot message spinner-msg">
+    <div class="dot-spinner">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
   <div class="chat-input">
     <input [(ngModel)]="userInput" placeholder="Type your message..." (keyup.enter)="sendMessage()" />
     <button (click)="sendMessage()">Send</button>
