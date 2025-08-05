@@ -31,8 +31,8 @@ import { LoadSpinnerComponent } from '../components/load-spinner/load-spinner.co
     NgSelectModule
   ],
   providers: [{provide: ErrorsService, useClass: ErrorsService},
-    // provideHttpClient(withInterceptors([RequestInterceptor])),
-    provideHttpClient()
+    provideHttpClient(withInterceptors([RequestInterceptor])),
+    // provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

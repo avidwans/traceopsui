@@ -1,31 +1,63 @@
-// /* global-spinner.component.scss */
-// .spinner-overlay {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   background-color: rgba(0, 0, 0, 0.4); // backdrop
-//   z-index: 9999;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
+/* Fullscreen backdrop */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.15); // Light faded backdrop
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-//   /* Fix for some rendering quirks */
-//   pointer-events: none;
-// }
+/* Spinner and loading text layout */
+.spinner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-// .spinner {
-//   width: 60px;
-//   height: 60px;
-//   border: 8px solid #e0e0e0;
-//   border-top: 8px solid #3f51b5;
-//   border-radius: 50%;
-//   animation: spin 1s linear infinite;
-//   pointer-events: auto;
-// }
+/* Spinner container */
+.spinner {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
 
-// @keyframes spin {
-//   0%   { transform: rotate(0deg); }
-//   100% { transform: rotate(360deg); }
-// }
+/* Each line in spinner */
+.spinner div {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  width: 4px;
+  height: 12px;
+  background-color: #333; // Dark gray like iOS
+  border-radius: 2px;
+  transform-origin: center 20px;
+  animation: fade 1.2s linear infinite;
+  opacity: 0.2;
+}
+
+/* Position and stagger bars (12 total, every 30 degrees) */
+@for $i from 1 through 12 {
+  .spinner div:nth-child(#{$i}) {
+    transform: rotate(#{($i - 1) * 30}deg);
+    animation-delay: #{($i - 1) * 0.1}s;
+  }
+}
+
+/* Fade animation */
+@keyframes fade {
+  0%   { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+/* Loading text */
+.loading-text {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}

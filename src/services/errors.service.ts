@@ -11,7 +11,7 @@ export class ErrorsService {
   constructor(protected httpClient: HttpClient) { }
 
   getErrorsList(): Observable<ErrorList[]>{
-    return this.httpClient.get<ErrorList[]>('/api/analzyse')
+    return this.httpClient.get<ErrorList[]>('http://localhost:3000/analyse')
   }
 
   getQueryReply(question: string): Observable<string>{

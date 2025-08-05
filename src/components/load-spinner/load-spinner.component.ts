@@ -4,9 +4,7 @@ import { LoaderService } from '../../services/loader.service';
 @Component({
   selector: 'app-load-spinner',
   standalone: false,
-  template: ` <div *ngIf="loaderService.loading$ | async" class="spinner-overlay">
-      <div class="custom-spinner"></div>
-    </div>`,
+  templateUrl: './load-spinner.component.html' ,
   styleUrl: './load-spinner.component.scss'
 })
 export class LoadSpinnerComponent {

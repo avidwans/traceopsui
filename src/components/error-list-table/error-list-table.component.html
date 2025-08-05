@@ -1,26 +1,59 @@
-@if(errorLogs.length){
-    <p-table [value]="errorLogs" stripedRows   [paginator]="errorLogs.length > 10"
-    [rows]="10" [tableStyle]="{ 'min-width': '50rem' }" [rowsPerPageOptions]="[10, 20, 50]">
-        <ng-template #header>
-            <tr>
-                <th>Exception</th>
-                <th>Occurences</th>
-                <th>Root Cause</th>
-                <th>Possible Solutions</th>
-            </tr>
-        </ng-template>
-        <ng-template #body let-errordetail>
-            <tr>
-                <td>{{ errordetail.exception }}</td>
-                <td>{{ errordetail.occurrence }}</td>
-                <td>{{ errordetail.rootCause }}</td>
-                <td>{{ errordetail.possibleSolutions }}</td>
-            </tr>
-        </ng-template>
-        <ng-template #emptymessage>
-            <tr>
-                <td colspan="12">No Records found.</td>
-            </tr>
-        </ng-template>
-    </p-table>
-}
+<div class="container pt-2">
+    <div class="row pb-2">
+        <div class="col-3">
+            <label for="calendar-start-24h">Start Date</label>
+            <p-datepicker inputId="calendar-start-24h" [showIcon]="true" [(ngModel)]="startDate" [showTime]="true" [hourFormat]="'24'" />
+        </div>
+        <div class="col-3">
+            <label for="calendar-end-24h">End Date</label>
+            <p-datepicker inputId="calendar-end-24h" [showIcon]="true" [(ngModel)]="endDate" [showTime]="true" [hourFormat]="'24'" />
+        </div>
+        <div class="col-3 justify-content-start">
+            <button pButton 
+                type="button" 
+                style="top:20px"
+                icon="pi pi-search" 
+                class="p-button-primary p-button-rounded" 
+                label="Search" 
+                (click)="searchRecords()">
+            </button>
+        </div>
+        <div class="col-3 d-flex justify-content-end align-items-end">
+            <button pButton 
+                type="button" 
+                icon="pi pi-file-pdf" 
+                class="p-button-danger p-button-rounded" 
+                label="" 
+                (click)="exportToPDF()">
+            </button>
+        </div>
+    </div>
+    @if(errorList.length){
+        <p-table [value]="errorList" stripedRows   [paginator]="errorList.length > 10"
+        [rows]="10" [tableStyle]="{ 'min-width': '50rem' }" [rowsPerPageOptions]="[10, 20, 50]">
+            <ng-template #header>
+                <tr>
+                    <th>Microservices</th>
+                    <th>Exception</th>
+                    <th>Occurences</th>
+                    <th>Root Cause</th>
+                    <th>Possible Solutions</th>
+                </tr>
+            </ng-template>
+            <ng-template #body let-errordetail>
+                <tr>
+                    <td>{{ errordetail.microservices }}</td>
+                    <td>{{ errordetail.exception }}</td>
+                    <td>{{ errordetail.occurrence }}</td>
+                    <td>{{ errordetail.rootCause }}</td>
+                    <td>{{ errordetail.possibleSolutions }}</td>
+                </tr>
+            </ng-template>
+            <ng-template #emptymessage>
+                <tr>
+                    <td colspan="12">No Records found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    }
+</div>

@@ -8,9 +8,11 @@ import { SelectModule } from 'primeng/select';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
-import { CardModule } from 'primeng/card'; 
+import { CardModule } from 'primeng/card';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-
+import Aura from '@primeng/themes/aura';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
 @NgModule({
     imports: [
         AccordionModule,
@@ -35,6 +37,14 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
         TableModule,
         CardModule,
         ProgressSpinnerModule
+    ],
+    providers: [
+        provideAnimationsAsync(),
+        providePrimeNG({
+            theme: {
+                preset: Aura
+            }
+        })
     ]
 })
 export class PrimeNgModule { }
