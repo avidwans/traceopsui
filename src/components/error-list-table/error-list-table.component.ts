@@ -23,7 +23,7 @@ export class ErrorListTableComponent implements OnInit {
   constructor(private errorService: ErrorsService,private loaderService:LoaderService){}
 
   ngOnInit(){
-    this.getErrorsLogsList(this.startDate,this.endDate)
+    // this.getErrorsLogsList(this.startDate,this.endDate)
   }
 
   exportToPDF() {
