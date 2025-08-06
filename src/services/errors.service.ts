@@ -11,10 +11,10 @@ export class ErrorsService {
   constructor(protected httpClient: HttpClient) { }
 
   getErrorsList(): Observable<ErrorList[]>{
-    return this.httpClient.get<ErrorList[]>('http://localhost:3000/analyse')
+    return this.httpClient.get<ErrorList[]>('/api/analyse')
   }
 
   getQueryReply(question: string): Observable<string>{
-    return this.httpClient.post<{reply: string}>('http://localhost:3000/chat',{query: question}).pipe(map(r => r.reply))
+    return this.httpClient.post<{reply: string}>('/api/chat',{query: question}).pipe(map(r => r.reply))
   }
 }
