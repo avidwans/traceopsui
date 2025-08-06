@@ -28,7 +28,7 @@ export class ErrorListTableComponent implements OnInit {
 
   exportToPDF() {
     const doc = new jsPDF();
-    const filename = "exception-details" + DateTime.now().toUTC().toISO();
+    const filename = "exception-details" + DateTime.now().toUTC().toISO() + ".pdf";
     // Define columns and rows
     const columns = ['Microservices', 'Exception', 'Occurences', 'Root Cause', 'Possible Solutions'];
     const rows = this.errorList.map(row => [row.microservices, row.exception, row.occurrence, row.rootCause, row.possibleSolutions]);
